@@ -1,43 +1,35 @@
-import java.util.Scanner;
-
 /**
- * Created by Admin on 2/19/17.
+ * Created by Admin on 2/20/17.
  */
 public class SelectionSort {
 
-    public static void sort(int[] array, int numberUsed ){
+    public static void sort(int[] a, int numberUsed){
         int index, indexOfNextSmallest;
-
-        for(index = 0; index < numberUsed -1; index++){
-            indexOfNextSmallest = indexofSmallest(array,index,numberUsed);
-            interchange(indexOfNextSmallest,index,array);
+        for(index = 0; index < numberUsed - 1; index++){
+            indexOfNextSmallest = indexOfSmallest(index,a,numberUsed);
+            interchange(index, indexOfNextSmallest,a);
         }
     }
 
 
-    // returns index of the smallest
-    private static int indexofSmallest(int[] array, int startindex, int numberUsed){
-        int min = array[startindex];
-        int indexOfMin = startindex;
+    private static int indexOfSmallest(int startIndex, int[] a, int numberUsed){
+        int min = a[startIndex];
+        int indexOfMin = startIndex;
         int index;
 
-        for (index = startindex + 1; index < numberUsed-1; index++){
-            if(array[index] < min){
-                min = array[index];
+        for(index = startIndex +1; index < numberUsed; index++){
+            if(a[index] < min){
+                min = a[index];
                 indexOfMin = index;
             }
-
+            return indexOfMin;
         }
-        return indexOfMin;
     }
 
-    private static void interchange(int i, int j, int[] array){
+    private static void interchange(int i, int j, int[] a){
         int temp;
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp; // orginal value of a[i]
+        temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
-
-
-
 }
